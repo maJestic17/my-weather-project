@@ -8,6 +8,9 @@ let tempMin=document.querySelector("#tempMin");
 tempMin.innerHTML=`L:${Math.round(response.data.main.temp_min)}°`;
 let description=document.querySelector("#description");
 description.innerHTML=`${response.data.weather[0].description}`;
+let iconElement = document.querySelector("#icon");
+iconElement.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}.png`);
+iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 function search(city){
 let apiKey = "78077238f4ea41548bb4d14fbbe9813d";
@@ -55,6 +58,9 @@ tempMin.innerHTML=`L:${Math.round(response.data.main.temp_min)}°`;
 let description=document.querySelector("#description");
 description.innerHTML=`${response.data.weather[0].description}`;
 let temperature=document.querySelector("#temperature");
+let iconElement = document.querySelector("#icon");
+iconElement.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}.png`);
+iconElement.setAttribute("alt", response.data.weather[0].description);
 let h1 = document.querySelector("h1");
   h1.innerHTML = `${response.data.name}`;
   temperature.innerHTML= `${Math.round(response.data.main.temp)}°`;
@@ -72,3 +78,5 @@ navigator.geolocation.getCurrentPosition(handlePosition);
 let button = document. querySelector("#current-location-button");
 button.addEventListener("click", showCurrent);
 search("Los Angeles");
+
+ 
