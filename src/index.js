@@ -1,7 +1,10 @@
 function showTemperature(response) {  
 let h1=document.querySelector("h1");
 h1.innerHTML=response.data.name;  
+celsiusTemperature = response.data.main.temp;
 temperature.innerHTML= `${Math.round(response.data.main.temp)}°`;
+celsiusTemperatureMax = response.data.main.temp_max;
+celsiusTemperatureMin = response.data.main.temp_min;
 let tempMax=document.querySelector("#tempMax");
 tempMax.innerHTML=`H:${Math.round(response.data.main.temp_max)}°`;
 let tempMin=document.querySelector("#tempMin");
@@ -17,20 +20,35 @@ let apiKey = "78077238f4ea41548bb4d14fbbe9813d";
 let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 axios.get(apiUrl).then(showTemperature);
 }
+function displayFahrenheitTemperature(event) {
+event.preventDefault();
+let temperature=document.querySelector("#temperature"); 
+celsiusLink.classList.remove ("active");
+fahrenheitLink.classList.add ("active");
+let fahrenheitTemperature = (celsiusTemperature * 9)/5 + 32;
+temperature.innerHTML=`${Math.round(fahrenheitTemperature)}°`;
+let tempMax=document.querySelector("#tempMax");
+let fahrenheitTemperatureMax = (celsiusTemperatureMax * 9)/5 + 32;
+tempMax.innerHTML=`H:${Math.round(fahrenheitTemperatureMax)}°`;
+let tempMin=document.querySelector("#tempMin");
+let fahrenheitTemperatureMin = (celsiusTemperatureMin * 9)/5 + 32;
+tempMin.innerHTML=`L:${Math.round(fahrenheitTemperatureMin)}°`;  
+}
+function displayCelsiusTemperature(event) {
+event.preventDefault();
+let temperature=document.querySelector("#temperature");
+celsiusLink.classList.add ("active");
+fahrenheitLink.classList.remove ("active"); 
+temperature.innerHTML=`${Math.round(celsiusTemperature)}°`; 
+let tempMax=document.querySelector("#tempMax");
+tempMax.innerHTML=`H:${Math.round(celsiusTemperatureMax)}°`;
+let tempMin=document.querySelector("#tempMin");
+tempMin.innerHTML=`L:${Math.round(celsiusTemperatureMin)}°`; 
+}
 function submitSearch(event){
 event.preventDefault();
 let city=document.querySelector("#search-text-input").value;
 search(city);  
-
-function getFahrenheit() {
-let apiKey = "78077238f4ea41548bb4d14fbbe9813d";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${searchInput.value}&appid=${apiKey}&units=imperial`;
-axios.get(apiUrl).then(showTemperature);  
-let temperature=document.querySelector("#temperature");
-temperature.innerHTML=`${Math.round(response.data.main.temp)}°`;  
-}
-let fahrenheit = document.querySelector("#fahrenheit-link");
-fahrenheit.addEventListener("click", getFahrenheit);
 }
 let now = new Date();
 let date = document.querySelector("#date");
@@ -75,8 +93,14 @@ function handlePosition(position) {
 
 navigator.geolocation.getCurrentPosition(handlePosition);
 }
+
 let button = document. querySelector("#current-location-button");
 button.addEventListener("click", showCurrent);
-search("Los Angeles");
-
- 
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", displayCelsiusTemperature);
+let celsiusTemperature = null;
+let celsiusTemperatureMax = null;
+let celsiusTemperatureMin = null;
+ search("Los Angeles");

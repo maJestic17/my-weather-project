@@ -13,18 +13,19 @@ img {
   width: 60px;
 }
 .form-group {
-  padding-top: 60px;
   width: auto !important;
 }
-.btn btn-warning {
+.btn {
+  color: #ffff;
+  font-family: "Antic Slab", serif;
   position: relative;
   left: 20px;
-  top: 40px;
+  top: 1px;
 }
-.btn btn-success {
+.btn btn-info {
   position: relative;
   left: 20px;
-  top: 40px;
+  top: 1px;
 }
 .col-2 {
   position: relative;
@@ -52,4 +53,11 @@ img {
 .footer {
   position: relative;
   left: 20px;
+}
+.active {
+  color: black;
+  cursor: default;
+}
+.active:hover {
+  text-decoration: none;
 }
