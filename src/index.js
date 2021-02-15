@@ -2,6 +2,10 @@ function showTemperature(response) {
 let h1=document.querySelector("h1");
 h1.innerHTML=response.data.name;  
 celsiusTemperature = response.data.main.temp;
+let humidityElement = document.querySelector("#humidity");
+let windElement = document.querySelector("#wind");
+humidityElement.innerHTML = response.data.main.humidity;
+windElement.innerHTML = Math.round(response.data.wind.speed);
 temperature.innerHTML= `${Math.round(response.data.main.temp)}°`;
 celsiusTemperatureMax = response.data.main.temp_max;
 celsiusTemperatureMin = response.data.main.temp_min;

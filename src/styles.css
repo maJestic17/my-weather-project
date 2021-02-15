@@ -15,17 +15,21 @@ img {
 .form-group {
   width: auto !important;
 }
+.form-control {
+  position: relative;
+  top: 2px;
+}
 .btn {
   color: #ffff;
   font-family: "Antic Slab", serif;
   position: relative;
   left: 20px;
-  top: 1px;
+  top: 0.5px;
 }
 .btn btn-info {
   position: relative;
   left: 20px;
-  top: 1px;
+  top: 0.5px;
 }
 .col-2 {
   position: relative;
