@@ -19,6 +19,7 @@ let iconElement = document.querySelector("#icon");
 iconElement.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}.png`);
 iconElement.setAttribute("alt", response.data.weather[0].description);
 }
+
 function displayForecast(response) {
 let forecastElement = document.querySelector("#forecast");
 forecastElement.innerHTML = null;
@@ -128,6 +129,8 @@ function handlePosition(position) {
   let apiKey = "78077238f4ea41548bb4d14fbbe9813d";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(currentTemperature);
+  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
+axios.get(apiUrl).then(displayForecast);
 }
 
 navigator.geolocation.getCurrentPosition(handlePosition);

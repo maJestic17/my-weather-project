@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="src/styles.css" />
     <title>Weather app</title>
-<link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Antic+Slab&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Antic+Slab&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Arvo:wght@700&family=Sansita+Swashed:wght@500&display=swap"
         rel="stylesheet">
@@ -15,84 +16,70 @@
     <script src="https://kit.fontawesome.com/9589ac4d9c.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
+
 <body>
-<div class="container">
-<div class="weather-app"> 
-       
-<div class="row">
-    <div class="col-2">
-         <span style="font-size: 90px">
-        <img 
-        id="icon"
-        src=""
-        alt=""
-    />
-    </span>
+    <div class="container">
+        <div class="weather-app">
+
+            <div class="row">
+                <div class="col-2">
+                    <span style="font-size: 90px">
+                        <img id="icon" src="" alt="" />
+                    </span>
+                </div>
+                <div class="col-3">
+                    <ul>
+                        <li id="description"></li>
+                        <li id="temperature"></li>
+                        <li>Humidity: <span id="humidity"></span>%</li>
+                        <li>Wind: <span id="wind"></span> km/h</li>
+                        <li id="tempMax">H:</li>
+                        <li id="tempMin">L:</li>
+                    </ul>
+                </div>
+                <div class="col-3">
+                    <form id="search-form">
+                        <form class="search-form">
+                            <div class="row">
+                                <div class="col-6">
+                                    <input type="search" placeholder="Search for a city" class="form-control shadow"
+                                        autofocus="on" autocomplete="off" id="search-text-input" />
+
+                                </div>
+                                <div class="col-6">
+                                    <input type="submit" value="Search"
+                                        class="form-control btn btn-warning shadow w-100" />
+                        </form>
+                </div>
+            </div>
+            </form>
+        </div>
+        <div class="col-1.5">
+            <button class="btn  w-100 shadow" id="current-location-button">
+                Current </button>
+        </div>
+        <div class="col-2">
+            <span class="units">
+                <a href="#" id="celsius-link" class="active"> °С </a>/
+                <a href="#" id="fahrenheit-link"> °F </a>
+            </span>
+        </div>
     </div>
-    <div class="col-3"> 
-            <ul>
-            <li  id="description"></li>
-            <li id="temperature"></li>
-            <li>Humidity: <span id="humidity"></span>%</li>
-            <li>Wind: <span id="wind"></span> km/h</li>
-            <li id="tempMax">H:</li>
-            <li id="tempMin">L:</li>    
-            </ul>
+    <h1>
+    </h1>
+    <h2 id="date">
+    </h2>
+    <div class="row weather-forecast" id="forecast">
+        <div class="row">
+        </div>
     </div>
-<div class="col-3">
-<form id="search-form">
-<form class="search-form">
-    <div class="row">
-        <div class="col-6">      
-    <input 
-    type="search" 
-    placeholder="Search for a city" 
-    class="form-control shadow"
-    autofocus="on"
-    autocomplete="off"
-    id="search-text-input"
-    />
-   
     </div>
-<div class="col-6">
-<input 
-type="submit"
-value="Search"
-class="form-control btn btn-warning shadow w-100"
-/>
-</form>
-</div>
-</div>
-</form>
-</div>
-<div class="col-1.5">
- <button 
- class="btn  w-100 shadow"
- id="current-location-button"
- >
- Current </button>   
-</div>
-<div class="col-2">
-    <span class="units">
- <a href ="#" id="celsius-link" class="active"> °С </a>/
-<a href="#" id="fahrenheit-link"> °F </a>
-    </span>
-</div>    
-</div>    
-<h1>
-</h1>
-<h2 id="date" >  
-</h2>
-<div class="row weather-forecast" id="forecast">    
-<div class="row"> 
-</div>
-</div>
-</div>
-<p class="footer">
-        <a href="https://github.com/maJestic17/my-weather-project" style="color:hsla(blue)";>
+    <p class="footer">
+        <a href="https://github.com/maJestic17/my-weather-project" style="color:hsla(blue)" ;>
             Open-source code
         </a> by Daria Sukhacheva
-    </p> 
-<script src="src/index.js"></script>
+    </p>
+    <script src="src/index.js"></script>
 </body>
+
 </html>
